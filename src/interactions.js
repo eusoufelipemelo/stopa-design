@@ -225,6 +225,23 @@ export function initInteractions() {
     if (Math.abs(dx) > 50) goTo(idx + (dx < 0 ? 1 : -1), true);
   }, { passive: true });
 
+  /* Vídeo lazy: só baixa/toca quando entra na viewport */
+  const lazyVideo = $('.lazy-video');
+  if (lazyVideo) {
+    const vObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        if (!lazyVideo.src && lazyVideo.dataset.src) {
+          lazyVideo.src = lazyVideo.dataset.src;
+          lazyVideo.play?.().catch(() => {});
+        }
+        vObs.unobserve(lazyVideo);
+      });
+    }, { rootMargin: '200px' });
+    vObs.observe(lazyVideo);
+    cleanups.push(() => vObs.disconnect());
+  }
+
   /* FAQ: fecha as outras */
   const details = $$('.faq__item');
   details.forEach(d => on(d, 'toggle', () => { if (d.open) details.forEach(o => { if (o !== d) o.open = false; }); }));

@@ -54,7 +54,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero" id="hero">
         <div className="hero__media" data-parallax="0.25">
-          <img src="/assets/img/sala-painel-ripado.jpg" alt="Painel ripado em nogueira com home theater assinado pela Stopa Design" />
+          <img src="/assets/img/living-adega.jpg" alt="Living com painel amadeirado e adega embutida iluminada — projeto Stopa Design" />
         </div>
         <div className="hero__veil"></div>
 
@@ -105,7 +105,7 @@ export default function Home() {
       <section className="sobre" id="sobre">
         <div className="sobre__grid">
           <div className="sobre__media reveal" data-parallax="0.12">
-            <img src="/assets/img/living-adega.jpg" alt="Living com painel e adega embutida em madeira nogueira" />
+            <img src="/assets/img/sala-painel-ripado.jpg" alt="Painel ripado em nogueira com home theater assinado pela Stopa Design" />
             <div className="sobre__badge">
               <span className="sobre__badge-num">2008</span>
               <span className="sobre__badge-lbl">desde</span>

@@ -2,6 +2,20 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { initInteractions } from './interactions.js'
 
+// <picture> com WebP + fallback JPEG
+function Shot({ name, alt, ...rest }) {
+  return (
+    <picture>
+      <source srcSet={`/assets/img/${name}.webp`} type="image/webp" />
+      <img src={`/assets/img/${name}.jpg`} alt={alt} {...rest} />
+    </picture>
+  )
+}
+
+// background-image com WebP + fallback JPEG (cards)
+const bg = (name) =>
+  `image-set(url('/assets/img/${name}.webp') type('image/webp'), url('/assets/img/${name}.jpg') type('image/jpeg'))`
+
 export default function Home() {
   useEffect(() => {
     const cleanup = initInteractions()
@@ -54,7 +68,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero" id="hero">
         <div className="hero__media" data-parallax="0.25">
-          <img src="/assets/img/living-adega.jpg" alt="Living com painel amadeirado e adega embutida iluminada — projeto Stopa Design" width="960" height="1280" decoding="async" />
+          <Shot name="living-adega" alt="Living com painel amadeirado e adega embutida iluminada — projeto Stopa Design" width="960" height="1280" decoding="async" />
         </div>
         <div className="hero__veil"></div>
 
@@ -105,7 +119,7 @@ export default function Home() {
       <section className="sobre" id="sobre">
         <div className="sobre__grid">
           <div className="sobre__media reveal" data-parallax="0.12">
-            <img src="/assets/img/sala-painel-ripado.jpg" alt="Painel ripado em nogueira com home theater assinado pela Stopa Design" width="960" height="1280" loading="lazy" decoding="async" />
+            <Shot name="sala-painel-ripado" alt="Painel ripado em nogueira com home theater assinado pela Stopa Design" width="960" height="1280" loading="lazy" decoding="async" />
             <div className="sobre__badge">
               <span className="sobre__badge-num">2008</span>
               <span className="sobre__badge-lbl">desde</span>
@@ -145,7 +159,7 @@ export default function Home() {
         </div>
 
         <div className="espec__grid">
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/cozinha-ilha.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('cozinha-ilha') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">01</span>
@@ -153,7 +167,7 @@ export default function Home() {
               <p>Ilhas imponentes, integração total e ergonomia pensada para quem vive a cozinha.</p>
             </div>
           </article>
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/closet-u.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('closet-u') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">02</span>
@@ -161,7 +175,7 @@ export default function Home() {
               <p>Organização sob medida, iluminação cênica e espelhos que ampliam o espaço.</p>
             </div>
           </article>
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/sala-painel-ripado.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('sala-painel-ripado') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">03</span>
@@ -169,7 +183,7 @@ export default function Home() {
               <p>Painéis ripados em madeira nobre que transformam a sala em peça central.</p>
             </div>
           </article>
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/varanda-gourmet.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('varanda-gourmet') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">04</span>
@@ -177,7 +191,7 @@ export default function Home() {
               <p>Áreas de convívio com churrasqueira, marcenaria resistente e estética refinada.</p>
             </div>
           </article>
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/office-escritorio.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('office-escritorio') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">05</span>
@@ -185,7 +199,7 @@ export default function Home() {
               <p>Estações de trabalho elegantes, com nichos iluminados e cabeamento oculto.</p>
             </div>
           </article>
-          <article className="espec__card reveal" style={{ '--img': "url('/assets/img/hall-espelhado.jpg')" }}>
+          <article className="espec__card reveal" style={{ '--img': bg('hall-espelhado') }}>
             <div className="espec__card-bg"></div>
             <div className="espec__card-body">
               <span className="espec__card-idx">06</span>
@@ -219,51 +233,51 @@ export default function Home() {
 
         <div className="galeria__grid" id="grid">
           <figure className="gitem reveal" data-cat="sala" data-cap="Painel ripado em nogueira com home theater suspenso">
-            <img src="/assets/img/sala-painel-ripado.jpg" alt="Painel ripado em nogueira com home theater" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="sala-painel-ripado" alt="Painel ripado em nogueira com home theater" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Sala</span> Painel ripado · Home theater</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="cozinha" data-cap="Ilha gourmet com coifa central e painel ripado">
-            <img src="/assets/img/cozinha-ilha.jpg" alt="Cozinha com ilha gourmet" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="cozinha-ilha" alt="Cozinha com ilha gourmet" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Cozinha</span> Ilha gourmet</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="closet" data-cap="Closet em U planejado com prateleiras e gavetas">
-            <img src="/assets/img/closet-u.jpg" alt="Closet em U planejado" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="closet-u" alt="Closet em U planejado" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Closet</span> Planejado em U</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="sala" data-cap="Living com painel amadeirado e adega embutida iluminada">
-            <img src="/assets/img/living-adega.jpg" alt="Living com adega embutida" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="living-adega" alt="Living com adega embutida" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Living</span> Painel · Adega</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="office" data-cap="Home office com marcenaria, nichos iluminados e boiserie">
-            <img src="/assets/img/office-escritorio.jpg" alt="Home office planejado" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="office-escritorio" alt="Home office planejado" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Office</span> Escritório iluminado</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="varanda" data-cap="Varanda gourmet com churrasqueira e marcenaria grafite">
-            <img src="/assets/img/varanda-gourmet.jpg" alt="Varanda gourmet com churrasqueira" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="varanda-gourmet" alt="Varanda gourmet com churrasqueira" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Varanda</span> Gourmet</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="closet" data-cap="Hall com portas espelhadas e boiserie clássica">
-            <img src="/assets/img/hall-espelhado.jpg" alt="Hall com portas espelhadas e boiserie" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="hall-espelhado" alt="Hall com portas espelhadas e boiserie" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Hall</span> Espelhos · Boiserie</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="cozinha" data-cap="Cozinha integrada com vista para a piscina">
-            <img src="/assets/img/cozinha-piscina.jpg" alt="Cozinha integrada com vista para piscina" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="cozinha-piscina" alt="Cozinha integrada com vista para piscina" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Cozinha</span> Integrada</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="office" data-cap="Painel ripado escuro para TV em home office">
-            <img src="/assets/img/office-ripado.jpg" alt="Painel ripado escuro em home office" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="office-ripado" alt="Painel ripado escuro em home office" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Office</span> Painel ripado</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="closet" data-cap="Closet com boiserie cinza e portas espelhadas">
-            <img src="/assets/img/closet-boiserie.jpg" alt="Closet com boiserie cinza espelhado" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="closet-boiserie" alt="Closet com boiserie cinza espelhado" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Closet</span> Boiserie cinza</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="sala" data-cap="Detalhe de painel ripado com nichos e prateleiras">
-            <img src="/assets/img/ripado-nichos.jpg" alt="Detalhe de painel ripado com nichos" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="ripado-nichos" alt="Detalhe de painel ripado com nichos" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Detalhe</span> Ripado · Nichos</figcaption>
           </figure>
           <figure className="gitem reveal" data-cat="closet" data-cap="Closet aberto planejado com amplo espaço de prateleiras">
-            <img src="/assets/img/closet-aberto.jpg" alt="Closet aberto planejado" loading="lazy" width="960" height="1280" decoding="async" />
+            <Shot name="closet-aberto" alt="Closet aberto planejado" loading="lazy" width="960" height="1280" decoding="async" />
             <figcaption><span>Closet</span> Aberto</figcaption>
           </figure>
         </div>

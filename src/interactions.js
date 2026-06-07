@@ -162,7 +162,7 @@ export function initInteractions() {
   const visibleItems = () => items.filter(it => !it.classList.contains('is-hidden'));
   const renderLb = (item) => {
     const img = $('img', item);
-    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
     lbCap.textContent = item.dataset.cap || img.alt;
   };
   const openLb = (item) => {

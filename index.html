@@ -33,10 +33,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Fontes sem bloquear a renderização (carrega como style assíncrono) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
 
-<!-- Preload da imagem LCP (hero) -->
-<link rel="preload" as="image" href="/assets/img/living-adega.jpg" fetchpriority="high" />
+<!-- Preload da imagem LCP (hero, WebP) -->
+<link rel="preload" as="image" href="/assets/img/living-adega.webp" type="image/webp" fetchpriority="high" />
 </head>
 <body>
 <div id="root"></div>

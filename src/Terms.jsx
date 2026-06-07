@@ -57,7 +57,7 @@ export default function Terms() {
       <footer className="footer">
         <div className="footer__bottom" style={{ borderTop: 'none' }}>
           <p>© <span>{new Date().getFullYear()}</span> Stopa Design. Todos os direitos reservados.</p>
-          <p className="footer__dev">Desenvolvido por: <a href="https://www.outboxgroup.framer.ai" target="_blank" rel="noopener">OutBox Group</a></p>
+          <p className="footer__dev">Desenvolvido por: <a href="https://outboxgroup.framer.ai/" target="_blank" rel="noopener">OutBox Group</a></p>
         </div>
       </footer>
     </>

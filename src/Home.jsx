@@ -527,7 +527,7 @@ export default function Home() {
           <p>© <span id="year"></span> Stopa Design. Todos os direitos reservados.</p>
           <p className="footer__dev">
             Desenvolvido por:{' '}
-            <a href="https://www.outboxgroup.framer.ai" target="_blank" rel="noopener">OutBox Group</a>
+            <a href="https://outboxgroup.framer.ai/" target="_blank" rel="noopener">OutBox Group</a>
           </p>
         </div>
       </footer>

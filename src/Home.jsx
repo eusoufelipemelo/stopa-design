@@ -16,6 +16,11 @@ function Shot({ name, alt, ...rest }) {
 const bg = (name) =>
   `image-set(url('/assets/img/${name}.webp') type('image/webp'), url('/assets/img/${name}.jpg') type('image/jpeg'))`
 
+// WhatsApp — número e mensagem padrão
+const WHATSAPP =
+  'https://wa.me/5511940687979?text=' +
+  encodeURIComponent('Olá, vi que veio através do nosso site, em que podemos ajudá-lo(a)?')
+
 export default function Home() {
   useEffect(() => {
     const cleanup = initInteractions()
@@ -83,8 +88,8 @@ export default function Home() {
             Madeiras nobres, engenharia milimétrica e um acabamento que se sente no toque.
           </p>
           <div className="hero__actions reveal">
-            <a href="#galeria" className="btn-gold">Ver projetos</a>
-            <a href="#contato" className="btn-outline">Iniciar meu projeto</a>
+            <a href="#galeria" className="btn-gold"><span>Ver projetos</span></a>
+            <a href="#contato" className="btn-outline"><span>Iniciar meu projeto</span></a>
           </div>
         </div>
 
@@ -459,7 +464,7 @@ export default function Home() {
             <p className="lead reveal">Conte um pouco sobre o ambiente dos seus sonhos. Nossa equipe retorna com os próximos passos.</p>
 
             <ul className="contato__info">
-              <li className="reveal"><span>WhatsApp</span><a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener">+55 (XX) XXXXX-XXXX</a></li>
+              <li className="reveal"><span>WhatsApp</span><a href={WHATSAPP} target="_blank" rel="noopener">+55 (11) 94068-7979</a></li>
               <li className="reveal"><span>E-mail</span><a href="mailto:contato@stopadesign.com.br">contato@stopadesign.com.br</a></li>
               <li className="reveal"><span>Atendimento</span>Seg a Sex · 9h às 18h</li>
             </ul>
@@ -502,7 +507,7 @@ export default function Home() {
               <input type="checkbox" id="consent" required />
               <span>Li e concordo com a <Link to="/politica-privacidade">Política de Privacidade</Link> e os <Link to="/termos-de-uso">Termos de Uso</Link>.</span>
             </label>
-            <button type="submit" className="btn-gold btn-block">Enviar solicitação</button>
+            <button type="submit" className="btn-gold btn-block"><span>Enviar solicitação</span></button>
             <p className="form__feedback" id="formFeedback" role="status"></p>
           </form>
         </div>
@@ -531,7 +536,7 @@ export default function Home() {
           </nav>
           <div className="footer__contact">
             <h5>Contato</h5>
-            <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+            <a href={WHATSAPP} target="_blank" rel="noopener">WhatsApp</a>
             <a href="mailto:contato@stopadesign.com.br">contato@stopadesign.com.br</a>
             <p className="footer__cnpj">CNPJ: 00.000.000/0001-00</p>
           </div>
@@ -547,7 +552,7 @@ export default function Home() {
       </footer>
 
       {/* WHATSAPP FLOAT */}
-      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20de%20m%C3%B3veis%20planejados."
+      <a href={WHATSAPP}
         className="wpp" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
         <svg viewBox="0 0 32 32" aria-hidden="true">
           <path d="M16.04 4C9.93 4 4.97 8.96 4.97 15.07c0 2.13.6 4.11 1.64 5.81L4.5 28l7.32-2.06a11 11 0 0 0 4.22.84h.01c6.11 0 11.07-4.96 11.07-11.07S22.15 4 16.04 4z" fill="#25D366" />

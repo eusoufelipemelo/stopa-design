@@ -265,7 +265,10 @@ export function initInteractions() {
       feedback.className = 'form__feedback err';
       return;
     }
-    feedback.textContent = 'Recebemos sua solicitação! Em breve nossa equipe entrará em contato. ✦';
+    const wppUrl = 'https://wa.me/5511940687979?text=' +
+      encodeURIComponent('Olá, vi que veio através do nosso site, em que podemos ajudá-lo(a)?');
+    window.open(wppUrl, '_blank', 'noopener');
+    feedback.textContent = 'Tudo certo! Abrimos o WhatsApp para concluir sua solicitação. ✦';
     feedback.className = 'form__feedback ok';
     form.reset();
   });
